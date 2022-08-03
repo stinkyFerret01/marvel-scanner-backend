@@ -45,7 +45,7 @@ app.get("/character", (req, res) => {
   }
 });
 
-app.get("/comic", (req, res) => {
+app.get("/charcomics", (req, res) => {
   try {
     axios
       .get(
