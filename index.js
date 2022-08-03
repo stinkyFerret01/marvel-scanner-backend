@@ -27,6 +27,24 @@ app.get("/characters", (req, res) => {
   }
 });
 
+app.post("/character", (req, res) => {
+  try {
+    axios
+      .get(
+        `https://lereacteur-marvel-api.herokuapp.com/character/${req.querry.id}?apiKey=${process.env.API_KEY}`
+      )
+      .then((response) => {
+        let charData = response.data;
+        res.json(charData);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+});
+
 app.listen(process.env.PORT || 3000, () => {
   console.log("Server has Started!!");
 });
