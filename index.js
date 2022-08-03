@@ -45,15 +45,33 @@ app.get("/character", (req, res) => {
   }
 });
 
-app.get("/comics", (req, res) => {
+app.get("/comic", (req, res) => {
   try {
     axios
       .get(
         `https://lereacteur-marvel-api.herokuapp.com/comics/${req.query.id}?apiKey=${process.env.API_KEY}`
       )
       .then((response) => {
-        let charcomicsData = response.data;
-        res.json(charcomicsData);
+        let charComicData = response.data;
+        res.json(charComicData);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+});
+
+app.get("/comics", (req, res) => {
+  try {
+    axios
+      .get(
+        `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}`
+      )
+      .then((response) => {
+        let charComicsData = response.data;
+        res.json(charComicsData);
       })
       .catch((error) => {
         console.log(error);
