@@ -27,7 +27,7 @@ app.get("/characters", (req, res) => {
   }
 });
 
-app.post("/character", (req, res) => {
+app.get("/character", (req, res) => {
   try {
     axios
       .get(
