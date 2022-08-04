@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.get("/characters", (req, res) => {
   try {
-    if (req.query.name) {
+    if (req.query.name.length < 3) {
       axios
         .get(
           `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.API_KEY}`
