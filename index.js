@@ -17,7 +17,7 @@ app.get("/characters", (req, res) => {
           `https://lereacteur-marvel-api.herokuapp.com/characters?skip=${req.query.skip}&apiKey=${process.env.API_KEY}`
         )
         .then((response) => {
-          let goodData = response.data.results;
+          let goodData = response.data;
           res.json(goodData);
         })
         .catch((error) => {
@@ -29,7 +29,7 @@ app.get("/characters", (req, res) => {
           `https://lereacteur-marvel-api.herokuapp.com/characters?skip=${req.query.skip}&name=${req.query.name}&apiKey=${process.env.API_KEY}`
         )
         .then((response) => {
-          let goodData = response.data.results;
+          let goodData = response.data;
           res.json(goodData);
         })
         .catch((error) => {
