@@ -14,7 +14,7 @@ app.get("/characters", (req, res) => {
     if (req.query.name.length < 3) {
       axios
         .get(
-          `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.API_KEY}`
+          `https://lereacteur-marvel-api.herokuapp.com/characters?skip=${req.query.skip}&apiKey=${process.env.API_KEY}`
         )
         .then((response) => {
           let goodData = response.data.results;
@@ -26,7 +26,7 @@ app.get("/characters", (req, res) => {
     } else {
       axios
         .get(
-          `https://lereacteur-marvel-api.herokuapp.com/characters?name=${req.query.name}&apiKey=${process.env.API_KEY}`
+          `https://lereacteur-marvel-api.herokuapp.com/characters?skip=${req.query.skip}&name=${req.query.name}&apiKey=${process.env.API_KEY}`
         )
         .then((response) => {
           let goodData = response.data.results;
