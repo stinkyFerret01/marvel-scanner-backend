@@ -7,7 +7,7 @@ go through the caracters informations and the Marvel comics they were seen in
 https://marvel-scanner.netlify.app/
 ## the backend-end is deployed with Heroku
 
-## Available Scripts
+## Available Scripts:
 
 In the project directory, you can run:
 
